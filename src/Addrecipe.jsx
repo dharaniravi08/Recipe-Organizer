@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+const API_BASE = import.meta.env.VITE_API_BASE;
+
 
 
 function AddRecipe() {
@@ -22,13 +24,14 @@ function AddRecipe() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/recipe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(recipeData),
-      });
+     const response = await fetch(`${API_BASE}/recipe`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(recipeData),
+});
+
 
       if (response.ok) {
         const data = await response.json();
@@ -95,5 +98,7 @@ function AddRecipe() {
     </div>
   );
 }
+
+
 
 export default AddRecipe;

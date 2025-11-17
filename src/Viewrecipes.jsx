@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+const API_BASE = import.meta.env.VITE_API_BASE;
+
 
 function ViewRecipes() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/recipe")
+   fetch(`${API_BASE}/recipe`)
+
       .then((res) => res.json())
       .then((data) => setRecipes(data))
       .catch((err) => console.error("Error fetching recipes:", err));
@@ -13,9 +16,8 @@ function ViewRecipes() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/recipe/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(`${API_BASE}/recipe/${id}`, { method: "DELETE" });
+
       if (response.ok) {
         setRecipes(recipes.filter((recipe) => recipe._id !== id));
         alert("Recipe deleted successfully!");

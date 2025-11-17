@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+const API_BASE = import.meta.env.VITE_API_BASE;
+
 
 function EditRecipe() {
   const { id } = useParams();
@@ -7,7 +9,8 @@ function EditRecipe() {
   const [recipe, setRecipe] = useState({name: "", ingredients: "", instructions: "" });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/recipe/${id}`)
+    fetch(`${API_BASE}/recipe/${id}`)
+
       .then(res => res.json())
       .then(data => {
         setRecipe({
@@ -29,12 +32,11 @@ function EditRecipe() {
       ...recipe,
       ingredients: recipe.ingredients.split(",").map(item => item.trim()),
     };
-
-    const response = await fetch(`http://localhost:5000/recipe/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedRecipe),
-    });
+const response = await fetch(`${API_BASE}/recipe/${id}`, {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(updatedRecipe),
+});
 
     if (response.ok) {
       alert("Recipe updated!");
