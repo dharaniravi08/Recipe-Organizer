@@ -5,7 +5,7 @@ function ViewRecipes() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/recipe")
+    fetch("http://localhost:5000/recipe")
       .then((res) => res.json())
       .then((data) => setRecipes(data))
       .catch((err) => console.error("Error fetching recipes:", err));
@@ -13,7 +13,7 @@ function ViewRecipes() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/recipe/${id}`, {
+      const response = await fetch(`http://localhost:5000/recipe/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
@@ -27,6 +27,7 @@ function ViewRecipes() {
   };
 
   return (
+    <>
     <div className="view-recipe-page">
       <h2>All Recipes</h2>
       <div className="recipe-list">
@@ -39,14 +40,19 @@ function ViewRecipes() {
               <button className="delete-btn" onClick={() => handleDelete(recipe._id)}>
                 Delete
               </button>
+                <Link to={`/edit/${recipe._id}`}>
+    <button className="delete-btn">Edit</button>
+  </Link>
+</div>
             </div>
-          </div>
+          
         ))}
       </div>
       <Link to="/" className="back-btn">
         ← Back to Add Recipe
       </Link>
     </div>
+    </>
   );
 }
 
