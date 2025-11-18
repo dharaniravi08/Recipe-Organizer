@@ -3,9 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  min-height: 80vh;
+    height: auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-left: 650px;
+  margin: 20px auto;
   margin-top:20px;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 40px;
@@ -13,14 +14,7 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
-body {
-  background-image: url("./assets/image2.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-}
+
 
 .homecontainer h1 {
   font-size: 3rem;
@@ -58,7 +52,7 @@ body {
 
 .add-recipe-container {
   max-width: 600px;
-  margin-left: 690px;
+margin: 20px auto;
   margin-top:15px;
   padding: 40px;
   background: rgba(20, 20, 20, 0.85);
@@ -135,7 +129,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+background-attachment: scroll;
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -144,7 +138,7 @@ body {
 }
 .view-recipe-page {
   max-width: 600px;
-  margin-left: 690px;
+margin: 20px auto;
   margin-top: 15px;
   padding: 40px;
   background: rgba(20, 20, 20, 0.85);
@@ -262,40 +256,10 @@ body {
   box-shadow: 0 4px 10px rgba(132, 204, 22, 0.3);
   margin-top: 15px;
 }
-@media (max-width: 480px) {
 
-  .homecontainer {
-    padding: 25px;
-  }
-
-  .homecontainer h1 {
-    font-size: 2.2rem;
-  }
-
-  .homecontainer p {
-    font-size: 1rem;
-  }
-
-  .recipe-card {
-    width: 100%;
-  }
-
-  .view-recipe-page,
-  .add-recipe-container {
-    padding: 20px;
-  }
-}
 
 /* 📱 TABLETS (481px – 768px) */
-@media (max-width: 768px) {
-  .homecontainer {
-    margin-top: 20px;
-  }
-
-  .recipe-card {
-    width: 100%;
-  }
-}
+/* 📱 FINAL MOBILE FIXES */
 
 /* 💻 SMALL LAPTOP (769px – 1024px) */
 @media (max-width: 1024px) {
@@ -314,5 +278,35 @@ body {
   .add-recipe-container,
   .view-recipe-page {
     max-width: 600px;
+  }
+}
+
+/* 📱 FINAL MOBILE FIXES */
+@media (max-width: 768px) {
+
+  body {
+    background-attachment: scroll !important;
+    background-size: cover;
+  }
+
+  .homecontainer,
+  .add-recipe-container,
+  .view-recipe-page {
+    width: 90% !important;
+    margin: 20px auto !important;
+    padding: 20px !important;
+  }
+
+  .recipe-card {
+    width: 100% !important;
+    min-height: 180px !important;
+  }
+
+  .homecontainer h1 {
+    font-size: 2rem !important;
+  }
+
+  .homecontainer p {
+    font-size: 1rem !important;
   }
 }
