@@ -17,7 +17,7 @@ body {
   background-image: url("./assets/image2.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
 }
@@ -154,7 +154,6 @@ body {
   color: #f1f5f9;
 }
 
-/* Heading */
 .view-recipe-page h2 {
   text-align: center;
   font-size: 28px;
@@ -163,7 +162,7 @@ body {
   text-shadow: 0 0 10px #000;
 }
 
-/* Recipe list container, 2 per row */
+
 .recipe-list {
   display: flex;
   flex-wrap: wrap;
@@ -171,7 +170,7 @@ body {
   justify-content: center;
 }
 
-/* Each recipe card */
+
 .recipe-card {
   background-color: #1f2937;
   border: 1.5px solid #374151;
@@ -219,7 +218,7 @@ body {
   background: #dc2626;
 }
 
-/* Back button styling */
+
 .back-btn {
   display: inline-block;
   margin-top: 30px;
@@ -238,9 +237,7 @@ body {
   transform: scale(1.03);
   background: linear-gradient(to right, #22c55e, #84cc16);
 }
-
-/* Responsive: single column on smaller screens */
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   .recipe-card {
     width: 100%;
   }
@@ -250,7 +247,7 @@ body {
     margin-right: 20px;
   }
 
-}
+} */
 .view-btn {
   width: 100%;
   padding: 14px;
@@ -264,4 +261,58 @@ body {
   transition: transform 0.2s ease, background 0.3s ease;
   box-shadow: 0 4px 10px rgba(132, 204, 22, 0.3);
   margin-top: 15px;
+}
+@media (max-width: 480px) {
+
+  .homecontainer {
+    padding: 25px;
+  }
+
+  .homecontainer h1 {
+    font-size: 2.2rem;
+  }
+
+  .homecontainer p {
+    font-size: 1rem;
+  }
+
+  .recipe-card {
+    width: 100%;
+  }
+
+  .view-recipe-page,
+  .add-recipe-container {
+    padding: 20px;
+  }
+}
+
+/* 📱 TABLETS (481px – 768px) */
+@media (max-width: 768px) {
+  .homecontainer {
+    margin-top: 20px;
+  }
+
+  .recipe-card {
+    width: 100%;
+  }
+}
+
+/* 💻 SMALL LAPTOP (769px – 1024px) */
+@media (max-width: 1024px) {
+
+  .homecontainer,
+  .add-recipe-container,
+  .view-recipe-page {
+    max-width: 80%;
+  }
+}
+
+/* 🖥️ LARGE SCREENS (1025px+) */
+@media (min-width: 1025px) {
+
+  .homecontainer,
+  .add-recipe-container,
+  .view-recipe-page {
+    max-width: 600px;
+  }
 }
